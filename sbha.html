@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>سبحة</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .mainbox{
+            width: 100%;
+            height: 100vh;
+            background-color: #222;
+            margin: 20px auto;
+        }
+        h1{
+            width: 100%;
+            background-color: #000;
+            color: #ffd700;
+            text-align: center;
+            font-size: 30px;
+            font-weight: 700;
+            padding: 20px 0;
+        }
+        h4{
+            width: 100%;
+            background-color: #909090;
+            color: #fdf;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bolder;
+            padding: 15px 0;
+        }
+        #abc{
+            width: 300px;
+            height: 260px;
+            background-color: #3986c9;
+            margin: 70px auto;
+            border-radius: 35%;
+            border:  10px solid #eec600;
+            color: #ffd700;
+            text-align: center;
+            font-size: 52px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+    </style>
+    
+</head>
+<body>
+
+    <div class="mainbox">
+<h1>بسم الله الرحمن الرحيم</h1> 
+<h4>فسبح بحمد ربك واستغفره انه كان توابا</h4>
+
+   <div id="abc">
+    <div id="v">ErorInValue</div>
+    <div id="c">ErorInConter</div>
+    </div> 
+</div>
+    
+ <script>
+
+     var box, value, cont, c, v;
+     
+     box = document.getElementById('abc');
+     value = document.getElementById('v');
+     cont  = document.getElementById('c');
+     
+     values =[
+         'سبحان الله',
+         'الحمد لله',
+         'الله اكبر'
+     ];
+     v = 1 , c = 0;// conters
+     
+     value.innerText = values[ v - 1 ];// Starting value
+     cont .innerText=  c ;// Starting number
+     
+box.onclick = function()
+{// Start bpx
+    
+        c += 1;// this is var c = c + 1
+    if( c > 33){c = 0; value.innerText = values[v]; v += 1; }
+    if( v == 3 ){ v = 0 }
+
+    
+    //this is changer conter
+        cont.innerText= c;
+} //End box    
+     
+     
+        
+
+</script>   
+</body>
+</html>

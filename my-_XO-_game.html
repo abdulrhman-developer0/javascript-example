@@ -1,0 +1,103 @@
+<meta charset="utf-8"/>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    #myg{
+        width: 438px;
+        height: 438px;
+        background-color: #a58631;
+        margin: 30px auto;
+    }
+    
+    #myg *{
+        float: left;
+        width: 140px;
+        height: 140px;
+        background-color: #b92d13;
+        margin: 3px;
+        padding: 5px 10px;
+        text-align: center;
+        color: #fdd;
+        font-weight: bolder;
+        font-size: 120px
+    }
+
+</style>
+
+<div id="myg">
+<div id="s1" onclick="play(this)"></div>
+<div id="s2" onclick="play(this)"></div>
+<div id="s3" onclick="play(this)"></div>
+<div id="s4" onclick="play(this)"></div>
+<div id="s5" onclick="play(this)"></div>
+<div id="s6" onclick="play(this)"></div>
+<div id="s7" onclick="play(this)"></div>
+<div id="s8" onclick="play(this)"></div>
+<div id="s9" onclick="play(this)"></div>   
+</div>
+
+
+<script>
+
+var squares, el, xo, i, vs;
+    
+    squares = document.getElementById('myg').children;
+    xo = true;
+    
+//fun play
+function play(e)
+{
+    el = document.getElementById(e.id);
+if(el.innerText=="")
+{
+//Start play
+if(xo){el.innerText='X';xo=false;}
+else{el.innerText='O';xo=true;}
+}
+// Set Values
+    vs=[0];
+    for(i = 0 ; i < squares.length;i+=1)
+    {
+        vs[vs.length] = squares[i].innerText;
+    }
+    
+    check(vs);
+}//fun play
+
+//Start check
+function check(v)
+{
+if(v[1]!=""&&v[1]==v[2]&&v[2]==v[3]){one(1,2,3)}
+else if(v[4]!=""&&v[4]==v[5]&&v[5]==v[6]){one(4,5,6)}
+else if(v[7]!=""&&v[7]==v[8]&&v[8]==v[9]){one(7,8,8)}
+
+else if(v[1]!=""&&v[1]==v[5]&&v[5]==v[9]){one(1,5,9)}
+else if(v[3]!=""&&v[3]==v[5]&&v[5]==v[7]){one(3,5,7)}
+
+else if(v[1]!=""&&v[1]==v[4]&&v[4]==v[7]){one(1,4,7)}
+else if(v[2]!=""&&v[2]==v[5]&&v[5]==v[8]){one(2,5,8)}
+else if(v[3]!=""&&v[3]==v[6]&&v[6]==v[9]){one(3,6,9)}
+
+
+}//fun check
+
+//Start one()
+function one(s1,s2,s3)
+{
+for( i=0; i<squares.length;i+=1)
+{//unOner
+   squares[i].style.backgroundColor='#e00'; 
+}
+    squares[s1 - 1].style.backgroundColor='#0e0';
+    squares[s2 - 1].style.backgroundColor='#0e0';
+    squares[s3 - 1].style.backgroundColor='#0e0';
+    
+  setTimeout(location.reload(),10000);  
+}//fun one()
+    
+</script>
+
+
